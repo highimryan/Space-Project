@@ -8,11 +8,16 @@ namespace Space_Project_Stephan
 {
     class Program
     {
+        
         static void Main(string[] args)
         {
             MainMenu();
             OpeningDialogue();
+            CharacterSelection();
+            IntroductionDialogue();
         }
+
+
         public static void MainMenu()
         {
             
@@ -66,14 +71,23 @@ namespace Space_Project_Stephan
                     {
                         Console.WriteLine("You have chosen Earthling.");
                         Console.ReadLine();
-                        // Insert Description - 
+                        // Insert Class Description - 
                         Console.WriteLine("Are you sure? Type Yes or No.");
                         var answer = Console.ReadLine();
                         if (answer == "Yes")
                         {
                             //continue to next method
                         }
+                        else if (answer == "yes")
+                        {
+                            //continue to next method
+                        }
                         else if (answer == "No")
+                        {
+                            Console.Clear();
+                            CharacterSelection();
+                        }
+                        else if (answer == "no")
                         {
                             Console.Clear();
                             CharacterSelection();
@@ -99,7 +113,16 @@ namespace Space_Project_Stephan
                         {
                             //continue to next method
                         }
+                        else if (answer == "yes")
+                        {
+                            //continue to next method
+                        }
                         else if (answer == "No")
+                        {
+                            Console.Clear();
+                            CharacterSelection();
+                        }
+                        else if (answer == "no")
                         {
                             Console.Clear();
                             CharacterSelection();
@@ -125,7 +148,16 @@ namespace Space_Project_Stephan
                         {
                             //continue to next method
                         }
+                        else if (answer == "yes")
+                        {
+                            //continue to next method
+                        }
                         else if (answer == "No")
+                        {
+                            Console.Clear();
+                            CharacterSelection();
+                        }
+                        else if (answer == "no")
                         {
                             Console.Clear();
                             CharacterSelection();
@@ -148,7 +180,12 @@ namespace Space_Project_Stephan
                         CharacterSelection();
                         break;
                     }
+
             }
+
+        }
+        public static void IntroductionDialogue()
+        {
 
         }
     }
