@@ -8,7 +8,7 @@ namespace Space_Project_Stephan
 {
     class Program
     {
-        
+
         static void Main(string[] args)
         {
             MainMenu();
@@ -20,19 +20,19 @@ namespace Space_Project_Stephan
 
         public static void MainMenu()
         {
-            
+
             Console.WriteLine("000000  000000    0    000000  000000");
             Console.WriteLine("0       0    0   0 0   0       0     ");
             Console.WriteLine("000000  000000  00000  0       000000");
             Console.WriteLine("     0  0       0   0  0       0     ");
             Console.WriteLine("000000  0       0   0  000000  000000\n");
-                
+
 
 
             Console.WriteLine("Hit any key to continue...");
             Console.ReadLine();
             Console.Clear();
-         }
+        }
         public static void OpeningDialogue()
         {
             Console.WriteLine("*****Hit enter to continue dialogue.*****\n");
@@ -56,7 +56,7 @@ namespace Space_Project_Stephan
 
         public static void CharacterSelection()
         {
-            Console.WriteLine("Enter your name: ");
+            Console.WriteLine("Enter your name: "); // I want to have this choice saved to other methods
             var YourName = Console.ReadLine();
             Console.WriteLine($"Hello {YourName}, choose your race.");
             Console.WriteLine("1) Earthling");
@@ -74,20 +74,11 @@ namespace Space_Project_Stephan
                         // Insert Class Description - 
                         Console.WriteLine("Are you sure? Type Yes or No.");
                         var answer = Console.ReadLine();
-                        if (answer == "Yes")
+                        if (answer == "Yes" || answer == "yes" || answer == "y")
                         {
-                            //continue to next method
+                            IntroductionDialogue();
                         }
-                        else if (answer == "yes")
-                        {
-                            //continue to next method
-                        }
-                        else if (answer == "No")
-                        {
-                            Console.Clear();
-                            CharacterSelection();
-                        }
-                        else if (answer == "no")
+                        else if (answer == "No" || answer == "no" || answer == "n")
                         {
                             Console.Clear();
                             CharacterSelection();
@@ -109,20 +100,11 @@ namespace Space_Project_Stephan
                         // Insert Description - 
                         Console.WriteLine("Are you sure? Type Yes or No.");
                         var answer = Console.ReadLine();
-                        if (answer == "Yes")
+                        if (answer == "Yes" || answer == "yes" || answer == "y")
                         {
-                            //continue to next method
+                            IntroductionDialogue();
                         }
-                        else if (answer == "yes")
-                        {
-                            //continue to next method
-                        }
-                        else if (answer == "No")
-                        {
-                            Console.Clear();
-                            CharacterSelection();
-                        }
-                        else if (answer == "no")
+                        else if (answer == "No" || answer == "no" || answer == "n")
                         {
                             Console.Clear();
                             CharacterSelection();
@@ -134,7 +116,7 @@ namespace Space_Project_Stephan
                             Console.Clear();
                             CharacterSelection();
                         }
-                            break;
+                        break;
                     }
                 case "3":
                 case "Walltopian":
@@ -144,20 +126,16 @@ namespace Space_Project_Stephan
                         // Insert Description - 
                         Console.WriteLine("Are you sure? Type Yes or No.");
                         var answer = Console.ReadLine();
-                        if (answer == "Yes")
+                        
+
+                        if (answer == "Yes" || answer =="yes" || answer == "y")
                         {
-                            //continue to next method
-                        }
-                        else if (answer == "yes")
-                        {
-                            //continue to next method
-                        }
-                        else if (answer == "No")
-                        {
+                            
                             Console.Clear();
-                            CharacterSelection();
+                            IntroductionDialogue();
+                            break; // Trying to break out of Character selection method after "yes" is chosen. 
                         }
-                        else if (answer == "no")
+                        else if (answer == "No" || answer == "no" || answer == "n")
                         {
                             Console.Clear();
                             CharacterSelection();
@@ -169,7 +147,7 @@ namespace Space_Project_Stephan
                             Console.Clear();
                             CharacterSelection();
                         }
-                            break;
+                        break;
                     }
                 default:
                     {
@@ -180,13 +158,15 @@ namespace Space_Project_Stephan
                         CharacterSelection();
                         break;
                     }
-
+                    
             }
-
+            
         }
+
         public static void IntroductionDialogue()
         {
-
+            Console.WriteLine("Tork: \"Greetings [yourname], welcome to the [shipname]!\"");
         }
     }
 }
+
