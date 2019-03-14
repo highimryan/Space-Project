@@ -56,7 +56,7 @@ namespace Space_Project_Stephan
 
         public static void CharacterSelection()
         {
-            Console.WriteLine("Enter your name: "); // I want to have this choice saved to other methods
+            Console.WriteLine("Enter your name: "); 
             string yourName;
             yourName = Console.ReadLine();
             Console.WriteLine($"Hello {yourName}, choose your race.");
@@ -165,8 +165,16 @@ namespace Space_Project_Stephan
 
         public static void IntroductionDialogue(string yourName)
         {
-            Console.WriteLine($"Tork: \"Greetings {yourName}, welcome to the [shipname]!\""); //still not working
+            Console.WriteLine($"Tork: \"Greetings {yourName}, welcome to the [ship name]!\"");
             Console.ReadLine();
+            Console.WriteLine("Masha: \"I'm so happy we've found you... we need help.\"");
+            Console.WriteLine("Tork: \"We don't need help, Masha! I've got this merchant business under control.\"");
+            Console.WriteLine("Masha: \"Oh really, Tork? Do you remember what day it is?\"");
+            Console.WriteLine("Tork begins to look flustered...");
+            Console.ReadLine();
+            Console.WriteLine("Masha: \"Tork has taken a too many hits to the head, he has trouble with his memory... Not to mention he's a Zipzorker...  \""); 
+            // Add an if statement here, if the player is a zipzorker insert a negative response. 
+
         }
     }
 }
