@@ -43,9 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActivePlayer.cs" />
+    <Compile Include="Planets.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="Spaceship.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

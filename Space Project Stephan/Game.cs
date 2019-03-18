@@ -18,12 +18,15 @@ namespace Space_Project_Stephan
         public void MainMenu()
         {
 
-            Console.WriteLine("000000  000000    0    000000  000000");
-            Console.WriteLine("0       0    0   0 0   0       0     ");
-            Console.WriteLine("000000  000000  00000  0       000000");
-            Console.WriteLine("     0  0       0   0  0       0     ");
-            Console.WriteLine("000000  0       0   0  000000  000000\n");
-            
+            Console.WriteLine("000000  000000    0    000000  000000      0000000  000000    0    00000   000000  000000");
+            Console.WriteLine("0       0    0   0 0   0       0              0     0    0   0 0   0   0   0       0    0");
+            Console.WriteLine("000000  000000  00000  0       000000         0     000000  00000  0    0  000000  000000");
+            Console.WriteLine("     0  0       0   0  0       0              0     0  0    0   0  0   0   0       0  0  ");
+            Console.WriteLine("000000  0       0   0  000000  000000         0     0    0  0   0  00000   000000  0    0\n");
+
+
+         
+
 
 
             Console.WriteLine("Hit any key to continue...");
@@ -172,6 +175,7 @@ namespace Space_Project_Stephan
             Console.ReadLine();
             Console.WriteLine("Masha: \"Tork has taken too many hits to the head, he has trouble with his memory... Not to mention he's a Walltopian.\"");
             // Add an if statement here, if the player is a zipzorker insert a negative response. 
+            Console.WriteLine($"Masha: \"{yourName}, we picked you up just outside of Earth's atmosphere. I know a trader here that loves gold, luckily for us, we have some.\n Let's see what we can get for it.\"");
 
         }
     }

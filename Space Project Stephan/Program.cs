@@ -15,6 +15,7 @@ namespace Space_Project_Stephan
             G = new Game();
             G.MainMenu();
             G.OpeningDialogue();
+
            
            // CharacterSelection();
            // IntroductionDialogue();
