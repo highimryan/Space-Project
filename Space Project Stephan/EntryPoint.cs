@@ -9,14 +9,21 @@ using Console = Colorful.Console;
 
 namespace Space_Project_Stephan
 {
-    class ActivePlayer
+    class Program
     {
-        //private double age = 20;
-        //private string name = Name;   Commented out so I can do a test run
+
+        static void Main(string[] args)
+        {
+            Game G;
+            G = new Game();
+            G.MainMenu();
+            G.OpeningDialogue();
 
 
-        //age that will increase as we travel
-        //constant name
-        //We will worry about attributes after everything else is completed. 
+
+            // CharacterSelection();
+            // IntroductionDialogue();
+        }
+
     }
 }

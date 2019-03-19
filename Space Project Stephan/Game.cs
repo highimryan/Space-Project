@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
+using Console = Colorful.Console;
 
 
 namespace Space_Project_Stephan
 {
     class Game
     {
+
 
         public Game()
         {
@@ -65,6 +68,9 @@ namespace Space_Project_Stephan
             Console.WriteLine("3) Walltopian");
             var race = Console.ReadLine();
 
+            Races races;
+            races = new Races();
+
             switch (race)
             {
                 case "1":
@@ -72,7 +78,7 @@ namespace Space_Project_Stephan
                     {
                         Console.WriteLine("You have chosen Earthling.");
                         Console.ReadLine();
-                        // Insert Class Description - 
+                        races.Earthling(); 
                         Console.WriteLine("Are you sure? Type Yes or No.");
                         var answer = Console.ReadLine();
                         if (answer == "Yes" || answer == "yes" || answer == "y")
@@ -101,7 +107,7 @@ namespace Space_Project_Stephan
                     {
                         Console.WriteLine("You have chosen Zipzorker.");
                         Console.ReadLine();
-                        // Insert Description - 
+                        races.ZipZorker();
                         Console.WriteLine("Are you sure? Type Yes or No.");
                         var answer = Console.ReadLine();
                         if (answer == "Yes" || answer == "yes" || answer == "y")
@@ -129,7 +135,7 @@ namespace Space_Project_Stephan
                     {
                         Console.WriteLine("You have chosen Walltopian.");
                         Console.ReadLine();
-                        // Insert Description - 
+                        races.Walltopian();
                         Console.WriteLine("Are you sure? Type Yes or No.");
                         var answer = Console.ReadLine();
                         if (answer == "Yes" || answer == "yes" || answer == "y")
@@ -175,7 +181,9 @@ namespace Space_Project_Stephan
             Console.ReadLine();
             Console.WriteLine("Masha: \"Tork has taken too many hits to the head, he has trouble with his memory... Not to mention he's a Walltopian.\"");
             // Add an if statement here, if the player is a zipzorker insert a negative response. 
-            Console.WriteLine($"Masha: \"{yourName}, we picked you up just outside of Earth's atmosphere. I know a trader here that loves gold, luckily for us, we have some.\n Let's see what we can get for it.\"");
+            Console.WriteLine($"Masha: \"{yourName}, we picked you up just outside of Earth's atmosphere. Take a look at the map and help us choose what to do.\"");
+            // This is where I want the user interface to start
+
 
         }
     }
