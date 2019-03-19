@@ -11,8 +11,6 @@ namespace Space_Project_Stephan
 {
     class Game
     {
-
-
         public Game()
         {
             return; //default constructor
@@ -21,35 +19,41 @@ namespace Space_Project_Stephan
         public void MainMenu()
         {
 
-            Console.WriteLine("000000  000000    0    000000  000000      0000000  000000    0    00000   000000  000000");
-            Console.WriteLine("0       0    0   0 0   0       0              0     0    0   0 0   0   0   0       0    0");
-            Console.WriteLine("000000  000000  00000  0       000000         0     000000  00000  0    0  000000  000000");
-            Console.WriteLine("     0  0       0   0  0       0              0     0  0    0   0  0   0   0       0  0  ");
-            Console.WriteLine("000000  0       0   0  000000  000000         0     0    0  0   0  00000   000000  0    0\n");
+            int DA = 244; // 244
+            int V = 212;
+            int ID = 200;
+            for (int i = 0; i <= 0 ; i++)
+            {
+                Console.WriteAscii("SPACE TRADER", Color.FromArgb(DA, V, ID));
+
+                DA -= 18;
+                V -= 36;
+            } 
+
 
 
          
 
 
 
-            Console.WriteLine("Hit any key to continue...");
+            Console.WriteLine("Press Enter to continue...", Color.SteelBlue);
             Console.ReadLine();
             Console.Clear();
         }
         public void OpeningDialogue()
         {
-            Console.WriteLine("*****Hit enter to continue dialogue.*****\n");
-            Console.WriteLine("You awaken in a cold, dark room...");
+            Console.WriteLine("*****Hit enter to continue dialogue.*****\n", Color.SteelBlue);
+            Console.WriteLine("You awaken in a cold, dark room...", Color.SteelBlue);
             Console.ReadLine();
-            Console.WriteLine("A shrill voice pierces your ears");
-            Console.WriteLine("\"You're awake, you're awake!\"");
+            Console.WriteLine("A shrill voice pierces your ears", Color.SteelBlue);
+            Console.WriteLine("\"You're awake, you're awake!\"", Color.HotPink);
             Console.ReadLine();
-            Console.WriteLine("\"Quiet, Masha we don't know if we can trust this.... thing.\"");
+            Console.WriteLine("\"Quiet, Masha we don't know if we can trust this.... thing.\"", Color.Red);
             Console.ReadLine();
-            Console.WriteLine("Masha replies");
+            Console.WriteLine("Masha replies", Color.SteelBlue);
             Console.WriteLine("\"Of course we can, Tork! We saved it, if it weren't for us it would still be floating in space.\"");
             Console.ReadLine();
-            Console.WriteLine("Tork helps you up");
+            Console.WriteLine("Tork helps you up", Color.SteelBlue);
             Console.WriteLine("\"Who are you?\"");
             Console.ReadLine();
 
@@ -59,13 +63,13 @@ namespace Space_Project_Stephan
 
          public void CharacterSelection()
         {
-            Console.WriteLine("Enter your name: ");
+            Console.WriteLine("Enter your name: ", Color.SteelBlue);
             string yourName;
             yourName = Console.ReadLine();
-            Console.WriteLine($"Hello {yourName}, choose your race.");
-            Console.WriteLine("1) Earthling");
-            Console.WriteLine("2) Zipzorker");
-            Console.WriteLine("3) Walltopian");
+            Console.WriteLine($"Hello {yourName}, choose your race.", Color.SteelBlue);
+            Console.WriteLine("1) Earthling", Color.SteelBlue);
+            Console.WriteLine("2) Zipzorker", Color.SteelBlue);
+            Console.WriteLine("3) Walltopian", Color.SteelBlue);
             var race = Console.ReadLine();
 
             Races races;
@@ -76,10 +80,10 @@ namespace Space_Project_Stephan
                 case "1":
                 case "Earthling":
                     {
-                        Console.WriteLine("You have chosen Earthling.");
+                        Console.WriteLine("You have chosen Earthling.", Color.SteelBlue);
                         Console.ReadLine();
                         races.Earthling(); 
-                        Console.WriteLine("Are you sure? Type Yes or No.");
+                        Console.WriteLine("Are you sure? Type Yes or No.", Color.SteelBlue);
                         var answer = Console.ReadLine();
                         if (answer == "Yes" || answer == "yes" || answer == "y")
                         {
@@ -99,6 +103,7 @@ namespace Space_Project_Stephan
                             Console.ReadLine();
                             Console.Clear();
                             CharacterSelection();
+
                         }
                         break;
                     }
@@ -128,6 +133,7 @@ namespace Space_Project_Stephan
                             Console.Clear();
                             CharacterSelection();
                         }
+                        
                         break;
                     }
                 case "3":
