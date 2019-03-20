@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 using Colorful;
 
-namespace SpaceTrader
+namespace SpaceTrader.Races
 {
     internal class Races
     {

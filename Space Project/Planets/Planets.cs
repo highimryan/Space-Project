@@ -1,6 +1,6 @@
-﻿namespace SpaceTrader
+﻿namespace SpaceTrader.Planets
 {
-    internal class Planets
+    class Planets
     {
         //when arriving at the planets open an list to trade to
         //enter arrays of inventory lists

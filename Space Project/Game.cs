@@ -1,5 +1,10 @@
 ﻿using System.Drawing;
 using Colorful;
+using SpaceTrader.Dialogue;
+//using SpaceTrader.Currency;
+using SpaceTrader.Races;
+using SpaceTrader.Planets;
+using SpaceTrader.SpaceShips;
 
 namespace SpaceTrader
 {
@@ -42,7 +47,7 @@ namespace SpaceTrader
 
         public void NewGame()
         {
-           new Dialogue().OpeningDialogue();
+           new NewToon().OpeningDialogue();
         }
 
         public void SavedGame()
@@ -62,8 +67,8 @@ namespace SpaceTrader
             Console.WriteLine("\t3. Walltopian", Color.SteelBlue);
             var race = Console.ReadLine();
 
-            Races races;
-            races = new Races();
+            Races.Races races;
+            races = new Races.Races();
 
             switch (race)
             {
@@ -80,7 +85,7 @@ namespace SpaceTrader
                     if (answer == "y")
                     {
                         Console.Clear();
-                        new Dialogue().IntroductionDialogue(yourName);
+                        new NewToon().IntroductionDialogue(yourName);
                         break;
                     }
 
@@ -110,8 +115,8 @@ namespace SpaceTrader
                     if (answer == "y")
                     {
                         Console.Clear();
-                        new Dialogue().IntroductionDialogue(yourName);
-                            break;
+                        new NewToon().IntroductionDialogue(yourName);
+                        break;
                     }
 
                     if (answer == "n")
@@ -140,8 +145,8 @@ namespace SpaceTrader
                     if (answer == "y")
                     {
                         Console.Clear();
-                        new Dialogue().IntroductionDialogue(yourName);
-                            break;
+                        new NewToon().IntroductionDialogue(yourName);
+                        break;
                     }
 
                     if (answer == "n")

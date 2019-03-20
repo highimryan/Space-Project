@@ -1,4 +1,4 @@
-﻿namespace SpaceTrader
+﻿namespace SpaceTrader.SpaceShips
 {
     internal class Spaceship
     {

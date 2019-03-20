@@ -2,7 +2,7 @@
 
 namespace SpaceTrader
 {
-    public static class Utility
+    public static class WarpSpeedUtility
     {
         public static double WarpSpeedToLightSpeed(double w)
         {

@@ -1,9 +1,9 @@
 ﻿using System.Drawing;
 using Colorful;
 
-namespace SpaceTrader
+namespace SpaceTrader.Dialogue
 {
-    internal class Dialogue
+    class NewToon
     {
         public void OpeningDialogue()
         {
