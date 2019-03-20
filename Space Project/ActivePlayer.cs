@@ -5,9 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using Console = Colorful.Console;
-//using Console.Colorful; Commented out so I can do a test run
 
-namespace Space_Project_Stephan
+namespace SpaceTrader
 {
     class ActivePlayer
     {

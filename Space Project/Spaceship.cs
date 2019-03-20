@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 using System.Drawing;
 using Console = Colorful.Console;
 
-namespace Space_Project_Stephan
+namespace SpaceTrader
 {
-    class Planets
+    class Spaceship
     {
-        //when arriving at the planets open an list to trade to
-        //enter arrays of inventory lists
+        //use spaceship to choose "travel" then choose one of three planets to go to
     }
 }

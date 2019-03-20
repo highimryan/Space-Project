@@ -5,9 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using Console = Colorful.Console;
-        
 
-namespace Space_Project_Stephan
+namespace SpaceTrader
 {
     class Program
     {
@@ -15,11 +14,8 @@ namespace Space_Project_Stephan
 
         static void Main(string[] args)
         {
-
-            Game G;
-            G = new Game();
-            G.MainMenu();
-            G.OpeningDialogue();
+            new Game().MainMenu();
+            // G.OpeningDialogue();
 
 
 
