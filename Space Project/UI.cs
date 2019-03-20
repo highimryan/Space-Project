@@ -3,7 +3,7 @@ using Console = Colorful.Console;
 
 namespace SpaceTrader
 {
-    internal static class Ui
+    internal static class UI
     {
         public static ConsoleKey ElicitInput(string prompt = "> ")
         {

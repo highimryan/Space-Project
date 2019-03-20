@@ -1,16 +1,244 @@
-﻿using System.Drawing;
-using Colorful;
-using SpaceTrader.Dialogue;
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using Console = Colorful.Console;
+
 //using SpaceTrader.Currency;
-using SpaceTrader.Races;
-using SpaceTrader.Planets;
-using SpaceTrader.SpaceShips;
 
 namespace SpaceTrader
 {
-    internal class Game
+    public class Game
     {
-        public void MainMenu()
+        List<Planet> planets = new List<Planet>();
+        private List<Races> races = new List<Races>();
+
+        Player hero;
+
+        public Game()
+        {
+            var beer = new Items("Space Beer", 1.2M);
+            var honey = new Items("Space Honey", 3.4M);
+            var illegalArms = new Items("Illegal Arms", 1000.88M);
+
+            planets.Add(
+                new Planet("Earth",
+                    "A pale blue dot, even at your close distance. The birthplace of mankind, now deserted.",
+                    0, 0,
+                    new List<Items>() { beer, illegalArms
+                    }));
+
+            planets.Add(
+                new Planet("ZipZorkland",
+                    "The new home world of the human race, such as it is.",
+                    0, 4.367,
+                    new List<Items>() { honey
+                    },
+                    0.9M));
+
+            planets.Add(
+                new Planet("Walltopia",
+                    "The planet of borders",
+                    Math.PI, Math.PI,
+                    new List<Items>() { honey, illegalArms, beer },
+                    (decimal)Math.PI));
+
+            hero = new Player(planets[0]);
+        }
+
+        public void Run()
+        {
+            Dialogue.OpeningDialogue();
+
+            var quitReason = EventLoop();
+
+            Dialogue.EndMessage(quitReason);
+        }
+
+        private QuitReason EventLoop()
+        {
+            QuitReason quitReason;
+
+            do
+            {
+                Console.Clear();
+
+                // Print the current location
+                Console.WriteLine($"Planet: {hero.planet.name}    Age: {hero.age:f2} years    Credits: {hero.money:f1}\n");
+
+                // Print a description of that location
+                Console.WriteLine(hero.planet.description);
+
+                // Provide options to the user re. things they can do
+                PrintOptionList();
+
+                var key = UI.ElicitInput();
+
+                quitReason = ShouldQuit(HandleInput(key));
+            } while (quitReason == QuitReason.DontQuit);
+
+            return quitReason;
+        }
+
+        private QuitReason ShouldQuit(QuitReason quitReason)
+        {
+            QuitReason AgeCheck() => hero.age >= 70 ? QuitReason.Age : QuitReason.DontQuit;
+            QuitReason MoneyCheck() => hero.money < 0 ? QuitReason.OutOfMoney : QuitReason.DontQuit;
+
+
+            if (quitReason == QuitReason.DontQuit)
+            {
+                quitReason = AgeCheck();
+            }
+
+            if (quitReason == QuitReason.DontQuit)
+            {
+                quitReason = MoneyCheck();
+            }
+
+            return quitReason;
+        }
+
+        private void PrintOptionList()
+        {
+            Console.WriteLine();
+            Console.WriteLine("1. Travel to other planets");
+            Console.WriteLine("2. Buy item");
+            Console.WriteLine("3. Sell item");
+            Console.WriteLine("q. Quit");
+        }
+
+        private QuitReason HandleInput(ConsoleKey key)
+        {
+            switch (key)
+            {
+                case ConsoleKey.Q:
+                    return QuitReason.UserQuit;
+                case ConsoleKey.D1:
+                    TravelMenu();
+                    break;
+                case ConsoleKey.D2:
+                    BuyMenu();
+                    break;
+                case ConsoleKey.D3:
+                    SellMenu();
+                    break;
+            }
+
+            return QuitReason.DontQuit;
+        }
+
+        private void SellMenu()
+        {
+            Console.Clear();
+
+            if (hero.inventory.Any())
+            {
+                PrintItems(hero.inventory);
+
+                var itemIndex = UI.ElicitInput("Which item would you like to sell: ", 1, hero.inventory.Count);
+
+                if (!itemIndex.cancelled)
+                {
+                    hero.SellItem(hero.inventory[itemIndex.input - 1]);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Nothing to sell...");
+                UI.ElicitInput("Press any key to continue...");
+            }
+        }
+
+        private void BuyMenu()
+        {
+            Console.Clear();
+
+            List<Items> items = hero.planet.item;
+
+            PrintItems(items);
+
+            var itemIndex = UI.ElicitInput("Which item would you like to buy: ", 1, items.Count);
+
+            if (!itemIndex.cancelled)
+            {
+                hero.BuyItem(items[itemIndex.input - 1]);
+            }
+        }
+
+        private void PrintItems(List<Items> items)
+        {
+            for (int i = 0; i < items.Count; ++i)
+            {
+                var item = items[i];
+                var cost = hero.planet.CostOf(item);
+
+                Console.WriteLine($"{i + 1}. {item.name} - {cost:f2}cr");
+            }
+        }
+
+        private void TravelMenu()
+        {
+            var done = false;
+            int selector = 0;
+            int count = planets.Count;
+
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("Travel to:");
+
+                PrintLocationsAndDistances(selector);
+
+                var key = UI.ElicitInput("");
+
+
+                switch (key)
+                {
+                    case ConsoleKey.DownArrow:
+                        selector++;
+                        selector %= count;
+                        break;
+                    case ConsoleKey.UpArrow:
+                        selector--;
+                        selector = (selector + count) % count;
+                        break;
+                    case ConsoleKey.Q:
+                        done = true;
+                        break;
+                    case ConsoleKey.RightArrow:
+                    case ConsoleKey.Enter:
+                        done = true;
+                        var warpSpeed = UI.ElicitInput("How fast (in warp units) would you like to go?", 0.0, 9.5);
+                        hero.TravelTo(planets[selector], warpSpeed);
+                        break;
+                }
+            } while (!done);
+        }
+
+        private void PrintLocationsAndDistances(int selector)
+        {
+            for (int i = 0; i < planets.Count; ++i)
+            {
+                Planet destination = planets[i];
+
+                var distance = hero.planet.DistanceTo(destination);
+
+                Console.Write($" - ");
+
+                if (i == selector)
+                {
+                    UI.Highlight();
+                }
+
+                Console.WriteLine($"{destination.name}: {distance:f2}ly");
+
+                UI.ResetColors();
+            }
+        }
+    
+
+    public void MainMenu()
         {
             var DA = 245;
             var V = 212;
@@ -47,7 +275,7 @@ namespace SpaceTrader
 
         public void NewGame()
         {
-           new NewToon().OpeningDialogue();
+            Dialogue.OpeningDialogue();
         }
 
         public void SavedGame()
@@ -65,19 +293,16 @@ namespace SpaceTrader
             Console.WriteLine("\t1. Earthling", Color.SteelBlue);
             Console.WriteLine("\t2. Zipzorker", Color.SteelBlue);
             Console.WriteLine("\t3. Walltopian", Color.SteelBlue);
-            var race = Console.ReadLine();
+            var races = Console.ReadLine();
 
-            Races.Races races;
-            races = new Races.Races();
-
-            switch (race)
+            switch (races)
             {
                 case "1":
                 {
                     Console.WriteLine("You have chosen Earthling.", Color.SteelBlue);
                     Console.ReadLine();
 
-                    races.Earthling();
+                    new Races.Earthling().EarthlingBio();
 
                     Console.WriteLine("Are you sure? Hit y for yes or n for no.", Color.SteelBlue);
                     var answer = Console.ReadLine();
@@ -85,7 +310,7 @@ namespace SpaceTrader
                     if (answer == "y")
                     {
                         Console.Clear();
-                        new NewToon().IntroductionDialogue(yourName);
+                        Dialogue.IntroductionDialogue(yourName);
                         break;
                     }
 
@@ -107,7 +332,7 @@ namespace SpaceTrader
                     Console.WriteLine("You have chosen Zipzorker.", Color.SteelBlue);
                     Console.ReadLine();
 
-                    races.ZipZorker();
+                    new Races.ZipZorker().ZipZorkerBio();
 
                     Console.WriteLine("Are you sure? Hit y for yes or n for no.", Color.SteelBlue);
                     var answer = Console.ReadLine();
@@ -115,7 +340,7 @@ namespace SpaceTrader
                     if (answer == "y")
                     {
                         Console.Clear();
-                        new NewToon().IntroductionDialogue(yourName);
+                        Dialogue.IntroductionDialogue(yourName);
                         break;
                     }
 
@@ -137,7 +362,7 @@ namespace SpaceTrader
                     Console.WriteLine("You have chosen Walltopian.", Color.SteelBlue);
                     Console.ReadLine();
 
-                    races.Walltopian();
+                    new Races.Walltopian().WalltopianBio();
 
                     Console.WriteLine("Are you sure? Hit y for yes or n for no.", Color.SteelBlue);
                     var answer = Console.ReadLine();
@@ -145,7 +370,7 @@ namespace SpaceTrader
                     if (answer == "y")
                     {
                         Console.Clear();
-                        new NewToon().IntroductionDialogue(yourName);
+                        Dialogue.IntroductionDialogue(yourName);
                         break;
                     }
 
