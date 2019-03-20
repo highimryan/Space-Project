@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActivePlayer.cs" />
+    <Compile Include="Dialogue.cs" />
     <Compile Include="EntryPoint.cs" />
     <Compile Include="Planets.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -55,7 +56,7 @@
     <Compile Include="Races.cs" />
     <Compile Include="Spaceship.cs" />
     <Compile Include="UI.cs" />
-    <Compile Include="Utilities.cs" />
+    <Compile Include="Utility.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

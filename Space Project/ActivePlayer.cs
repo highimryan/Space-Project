@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Drawing;
-using Console = Colorful.Console;
-
-namespace SpaceTrader
+﻿namespace SpaceTrader
 {
-    class ActivePlayer
+    internal class ActivePlayer
     {
         //private double age = 20;
         //private string name = Name;   Commented out so I can do a test run
