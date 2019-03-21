@@ -11,4 +11,4 @@ namespace SpaceTrader
             return Math.Pow(w, 10.0 / 3) + Math.Pow(10 - w, -11.0 / 3);
         }
     }
-}
+} 
