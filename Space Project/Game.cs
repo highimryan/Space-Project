@@ -342,7 +342,7 @@ namespace SpaceTrader
 
                     if (answer == "y")
                     {
-                        this.races = Player.Player();
+                        
                         Console.Clear();
                         Dialogue.IntroductionDialogue(yourName);
                         break;
