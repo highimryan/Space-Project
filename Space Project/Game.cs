@@ -17,8 +17,8 @@ namespace SpaceTrader
 
         public Game()
         {
-            var beer = new Items("Space Beer", 1.2M);
-            var honey = new Items("Space Honey", 3.4M);
+            var beer = new Items("Space Dust Beer", 1.2M);
+            var flowers = new Items("Space flowers", 3.4M);
             var illegalArms = new Items("Illegal Arms", 1000.88M);
             var candy = new Items("Space Candy", 1.2M);
             var magazine = new Items("Walltopian Report", 1.2M);
@@ -28,7 +28,7 @@ namespace SpaceTrader
 
             planets.Add(
                 new Planet("Earth",
-                    "A pale blue dot, even at your close distance. The birthplace of mankind, now deserted.",
+                    "Home of humanity, a water based planet with many life forms.",
                     0, 0,
                     new List<Items>() { beer, illegalArms, food
                     }));
@@ -37,16 +37,16 @@ namespace SpaceTrader
                 new Planet("ZipZorkland",
                     "Home of the ZipZorkians, the world seems in chaos to an outsider.",
                     0, 4.367,
-                    new List<Items>() { honey, food, ring, candy
+                    new List<Items>() { flowers, food, ring, candy
                     },
                     0.9M));
 
             planets.Add(
                 new Planet("Walltopia",
-                    "The planet of borders, a structured planet with strict rules.",
+                    "Home of the Walltopians, a structured planet with strict rules.",
                     6.00, 8.00,
-                    new List<Items>() { honey, illegalArms, beer, gun,  },
-                    2.0M));
+                    new List<Items>() { beer, gun, candy  },
+                    1.5M));
 
             hero = new Player(planets[0]);
         }

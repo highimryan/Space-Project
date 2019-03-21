@@ -1,5 +1,5 @@
 ﻿using System.Drawing;
-using Console = System.Console;
+using Console = Colorful.Console;
 
 
 namespace SpaceTrader

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Colorful;
-using Console = System.Console;
+using Console = Colorful.Console;
 
 namespace SpaceTrader
 {
@@ -19,9 +19,9 @@ namespace SpaceTrader
                 Console.WriteLine("Earthlings are a balanced race that have a calm disposition.\n", Color.SteelBlue);
 
            
-                Console.WriteLine(@"                mmmmm      ",Color.SteelBlue);
-                Console.WriteLine(@"               m/o o\m     ", Color.SteelBlue);
-                Console.WriteLine(@"              _m\ ~ /m_    ", Color.SteelBlue);
+                Console.WriteLine(@"                 ___     ",Color.SteelBlue);
+                Console.WriteLine(@"                /o o\    ", Color.SteelBlue);
+                Console.WriteLine(@"              _ \ ~ /_    ", Color.SteelBlue);
                 Console.WriteLine(@"             /|       |\   ", Color.SteelBlue);
                 Console.WriteLine(@"            // \     / \\  ", Color.SteelBlue);
                 Console.WriteLine(@"           //   |   |   \\ ", Color.SteelBlue);
@@ -48,13 +48,13 @@ namespace SpaceTrader
                 Console.WriteLine("It is said that these small beings have telekinesis, but it has never been proven.\n",
                     Color.LightSeaGreen);
 
-                Console.WriteLine(@"              |      ", Color.SteelBlue);
-                Console.WriteLine(@"             _|_      ", Color.SteelBlue);
-                Console.WriteLine(@"            |o o|     ", Color.SteelBlue);
-                Console.WriteLine(@"           \ \O/ /       ", Color.SteelBlue);
-                Console.WriteLine(@"            \/ \/      ", Color.SteelBlue);
-                Console.WriteLine(@"             |_|      ", Color.SteelBlue);
-                Console.WriteLine(@"           _/   \_       ", Color.SteelBlue);
+                Console.WriteLine(@"              |      ", Color.LightSeaGreen);
+                Console.WriteLine(@"             _|_      ", Color.LightSeaGreen);
+                Console.WriteLine(@"            |o o|     ", Color.LightSeaGreen);
+                Console.WriteLine(@"           \ \O/ /       ", Color.LightSeaGreen);
+                Console.WriteLine(@"            \/ \/      ", Color.LightSeaGreen);
+                Console.WriteLine(@"             |_|      ", Color.LightSeaGreen);
+                Console.WriteLine(@"           _/   \_       ", Color.LightSeaGreen);
 
 
 
@@ -72,7 +72,7 @@ namespace SpaceTrader
 
                 Console.WriteLine(@"           _____               ", Color.Red);
                 Console.WriteLine(@"          /-----\              ", Color.Red);
-                Console.WriteLine(@"          |{o o}|               ", Color.Red);
+                Console.WriteLine(@"          |[o o]|               ", Color.Red);
                 Console.WriteLine(@"        __| +++ |__               ", Color.Red);
                 Console.WriteLine(@"       /| | | | | |\                  ", Color.Red);
                 Console.WriteLine(@"      / /|-------|\ \                   ", Color.Red);
