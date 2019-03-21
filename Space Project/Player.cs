@@ -9,14 +9,12 @@ namespace SpaceTrader
         public decimal money;
 
         public Planet planet;
-        public Races race;
 
         public List<Items> inventory = new List<Items>();
 
-        public Player(Planet planet, Races race)
+        public Player(Planet planet)
         {
             this.planet = planet;
-            this.race = race;
             money = 1000M;
         }
 

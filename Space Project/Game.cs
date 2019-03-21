@@ -43,7 +43,7 @@ namespace SpaceTrader
                     new List<Items>() { honey, illegalArms, beer },
                     (decimal)Math.PI));
 
-            hero = new Player(planets[0], races[0]);
+            hero = new Player(planets[0]);
         }
 
         public void Run()
@@ -342,7 +342,7 @@ namespace SpaceTrader
 
                     if (answer == "y")
                     {
-                        this.races = Player.Player();
+                        
                         Console.Clear();
                         Dialogue.IntroductionDialogue(yourName);
                         break;
