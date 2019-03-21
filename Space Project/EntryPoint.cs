@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using Console = System.Console;
 
 
 namespace SpaceTrader
