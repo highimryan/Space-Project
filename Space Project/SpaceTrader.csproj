@@ -36,6 +36,9 @@
     <Reference Include="Colorful.Console, Version=1.2.9.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Colorful.Console.1.2.9\lib\net461\Colorful.Console.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -51,6 +54,7 @@
     <Compile Include="Dialogue.cs" />
     <Compile Include="EntryPoint.cs" />
     <Compile Include="GameEnd.cs" />
+    <Compile Include="Interface1.cs" />
     <Compile Include="Items.cs" />
     <Compile Include="Planets.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -67,6 +71,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="1. ToDo List.md" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Enums\" />

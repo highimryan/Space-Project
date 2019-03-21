@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 namespace SpaceTrader
 {
@@ -8,11 +9,14 @@ namespace SpaceTrader
         public decimal money;
 
         public Planet planet;
+        public Races race;
+
         public List<Items> inventory = new List<Items>();
 
-        public Player(Planet planet)
+        public Player(Planet planet, Races race)
         {
             this.planet = planet;
+            this.race = race;
             money = 1000M;
         }
 

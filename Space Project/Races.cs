@@ -9,7 +9,7 @@ using Console = System.Console;
 
 namespace SpaceTrader
 {
-    class Races
+    public class Races
     {
         internal class Earthling
         {

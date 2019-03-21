@@ -1,4 +1,7 @@
-﻿namespace SpaceTrader
+﻿using System.Drawing;
+using Colorful;
+
+namespace SpaceTrader
 {
     internal class Program
     {

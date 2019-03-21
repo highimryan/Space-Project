@@ -11,7 +11,7 @@ namespace SpaceTrader
     public class Game
     {
         List<Planet> planets = new List<Planet>();
-        private List<Races> races = new List<Races>();
+        List<Races> races = new List<Races>();
 
         Player hero;
 
@@ -43,16 +43,53 @@ namespace SpaceTrader
                     new List<Items>() { honey, illegalArms, beer },
                     (decimal)Math.PI));
 
-            hero = new Player(planets[0]);
+            hero = new Player(planets[0], races[0]);
         }
 
         public void Run()
         {
-            Dialogue.OpeningDialogue();
+            MainMenu();
+
+            //Dialogue.OpeningDialogue();
 
             var quitReason = EventLoop();
 
             Dialogue.EndMessage(quitReason);
+        }
+
+        public void MainMenu()
+        {
+            var DA = 245;
+            var V = 212;
+            var ID = 200;
+
+            for (var i = 0; i <= 0; i++)
+            {
+                Console.WriteAscii("SPACE TRADER", Color.FromArgb(DA, V, ID));
+
+                DA -= 18;
+                V -= 36;
+            }
+
+            Console.WriteLine("\n \t1. Start New Game\n \t2. Load Saved Game  ", Color.LimeGreen);
+            var input = Console.ReadLine();
+
+            switch (input) //Switch for Selecting New Game or Saved Game
+            {
+                case "1":
+                {
+                    NewGame();
+                    break;
+                }
+                case "2":
+                {
+                    SavedGame();
+                    break;
+                }
+            }
+
+            Console.ReadKey();
+            Console.Clear();
         }
 
         private QuitReason EventLoop()
@@ -236,43 +273,7 @@ namespace SpaceTrader
                 UI.ResetColors();
             }
         }
-    
-
-    public void MainMenu()
-        {
-            var DA = 245;
-            var V = 212;
-            var ID = 200;
-
-            for (var i = 0; i <= 0; i++)
-            {
-                Console.WriteAscii("SPACE TRADER", Color.FromArgb(DA, V, ID));
-
-                DA -= 18;
-                V -= 36;
-            }
-
-            Console.WriteLine("\n \t1. Start New Game\n \t2. Load Saved Game  ", Color.SteelBlue);
-            var input = Console.ReadLine();
-
-            switch (input) //Switch on Key enum
-            {
-                case "1":
-                {
-                    NewGame();
-                    break;
-                }
-                case "2":
-                {
-                    SavedGame();
-                    break;
-                }
-            }
-
-            Console.ReadKey();
-            Console.Clear();
-        }
-
+        
         public void NewGame()
         {
             Dialogue.OpeningDialogue();
@@ -286,6 +287,7 @@ namespace SpaceTrader
 
         public void CreateToon()
         {
+            
             Console.WriteLine("Enter your name: ", Color.SteelBlue);
             var yourName = Console.ReadLine();
 
@@ -293,9 +295,9 @@ namespace SpaceTrader
             Console.WriteLine("\t1. Earthling", Color.SteelBlue);
             Console.WriteLine("\t2. Zipzorker", Color.SteelBlue);
             Console.WriteLine("\t3. Walltopian", Color.SteelBlue);
-            var races = Console.ReadLine();
+            var player = Console.ReadLine();
 
-            switch (races)
+            switch (player)
             {
                 case "1":
                 {
@@ -309,6 +311,7 @@ namespace SpaceTrader
 
                     if (answer == "y")
                     {
+                        
                         Console.Clear();
                         Dialogue.IntroductionDialogue(yourName);
                         break;
@@ -339,6 +342,7 @@ namespace SpaceTrader
 
                     if (answer == "y")
                     {
+                        this.races = Player.Player();
                         Console.Clear();
                         Dialogue.IntroductionDialogue(yourName);
                         break;
