@@ -26,6 +26,7 @@ namespace SpaceTrader
             age += distance / speed;
 
             planet = destination;
+            
         }
 
         public void BuyItem(Items item)
