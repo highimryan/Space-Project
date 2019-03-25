@@ -35,7 +35,7 @@ namespace SpaceTrader
 
             planets.Add(
                 new Planet("ZipZorkland",
-                    "Home of the ZipZorkians, the world seems in chaos to an outsider.",
+                    "Home of the ZipZorkers, the world seems in chaos to an outsider.",
                     0, 4.367,
                     new List<Items>() { flowers, food, ring, candy
                     },
@@ -144,10 +144,10 @@ namespace SpaceTrader
         private void PrintOptionList()
         {
             Console.WriteLine();
-            Console.WriteLine("1. Travel to other planets");
-            Console.WriteLine("2. Buy item");
-            Console.WriteLine("3. Sell item");
-            Console.WriteLine("q. Quit");
+            Console.WriteLine("1. Travel to a different planet", Color.LimeGreen);
+            Console.WriteLine("2. Buy stuff", Color.LimeGreen);
+            Console.WriteLine("3. Sell stuff", Color.LimeGreen);
+            Console.WriteLine("q. Quit", Color.LimeGreen);
         }
 
         private QuitReason HandleInput(ConsoleKey key)

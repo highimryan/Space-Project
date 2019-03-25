@@ -54,7 +54,6 @@
     <Compile Include="Dialogue.cs" />
     <Compile Include="EntryPoint.cs" />
     <Compile Include="GameEnd.cs" />
-    <Compile Include="Interface1.cs" />
     <Compile Include="Items.cs" />
     <Compile Include="Planets.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
