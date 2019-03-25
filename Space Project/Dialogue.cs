@@ -37,7 +37,7 @@ namespace SpaceTrader
 
         public static void IntroductionDialogue(string yourName)
         {
-            Console.WriteLine($"Tork: \"Greetings {yourName}, welcome to the [ship name]!\"", Color.Red);
+            Console.WriteLine($"Tork: \"Greetings {yourName}, welcome to the Big Rig!\"", Color.Red);
             Console.ReadLine();
             Console.WriteLine("Masha: \"I'm so happy we've found you... we need help.\"", Color.HotPink);
             Console.WriteLine("Tork: \"We don't need help, Masha! I've got this merchant business under control.\"",Color.Red);
@@ -60,10 +60,10 @@ namespace SpaceTrader
                     Console.WriteLine("Sorry to see you go...\n\n");
                     break;
                 case QuitReason.Age:
-                    Console.WriteLine("You're 70 years old... The time has come for you to retire.\n\n");
+                    Console.WriteLine("You're 70 years old... you awaken in an old folks home.\n\n");
                     break;
                 case QuitReason.OutOfMoney:
-                    Console.WriteLine("Your last penny spent, a debtor's prison colony awaits your remaining years.");
+                    Console.WriteLine("You have ran out of money. GAME OVER!");
                     break;
                 case QuitReason.DontQuit:
                     throw new NotImplementedException("Shouldn't be quitting with DontQuit reason");

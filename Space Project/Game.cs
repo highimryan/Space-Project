@@ -17,7 +17,7 @@ namespace SpaceTrader
 
         public Game()
         {
-            var beer = new Items("Space Dust Beer", 1.2M);
+            var whiskey = new Items("Space whiskey", 1.2M);
             var flowers = new Items("Space flowers", 3.4M);
             var illegalArms = new Items("Illegal Arms", 1000.88M);
             var candy = new Items("Space Candy", 1.2M);
@@ -30,7 +30,7 @@ namespace SpaceTrader
                 new Planet("Earth",
                     "Home of humanity, a water based planet with many life forms.",
                     0, 0,
-                    new List<Items>() { beer, illegalArms, food
+                    new List<Items>() { whiskey, illegalArms, food
                     }));
 
             planets.Add(
@@ -45,7 +45,7 @@ namespace SpaceTrader
                 new Planet("Walltopia",
                     "Home of the Walltopians, a structured planet with strict rules.",
                     6.00, 8.00,
-                    new List<Items>() { beer, gun, candy  },
+                    new List<Items>() { whiskey, gun, candy  },
                     1.5M));
 
             hero = new Player(planets[0]);
@@ -145,8 +145,8 @@ namespace SpaceTrader
         {
             Console.WriteLine();
             Console.WriteLine("1. Travel to a different planet", Color.LimeGreen);
-            Console.WriteLine("2. Buy stuff", Color.LimeGreen);
-            Console.WriteLine("3. Sell stuff", Color.LimeGreen);
+            Console.WriteLine("2. Buy", Color.LimeGreen);
+            Console.WriteLine("3. Sell", Color.LimeGreen);
             Console.WriteLine("q. Quit", Color.LimeGreen);
         }
 
